@@ -18,7 +18,7 @@ namespace LoginTask.Models
     {
         public int UserID { get; set; }
         [Required(ErrorMessage = "This field is required!")]
-        [RegularExpression(@"^[A-Z][a-z]*(\s[A-Z][a-z]*)+$", ErrorMessage = "Not a valid name!")]
+        [RegularExpression(@"^[A-Z][a-z](\s[A-Z][a-z])+$", ErrorMessage = "Not a valid name!")]
         [Display(Name = "Full Name")]
         public string UserName { get; set; }
         [Required(ErrorMessage = "This field is required!")]
@@ -30,7 +30,7 @@ namespace LoginTask.Models
         [Required(ErrorMessage = "This field is required!")]
         [Display(Name = "Phone")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Not a valid phone number!")]
+        [RegularExpression(@"^[6-9]\d{9}$", ErrorMessage = "Not a valid phone number!")]
 
         public string UserPhone { get; set; }
         [Required(ErrorMessage = "This field is required!")]
@@ -40,6 +40,7 @@ namespace LoginTask.Models
         [Display(Name = "Password")]
         [Required(ErrorMessage = "This field is required!")]
         [DataType(DataType.Password)]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$#!%*?&]{8,16}$", ErrorMessage = "Password must contain minimum 8 and maximum 16 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character!")]
         public string UserPassword { get; set; }
 
         [Display(Name = "Confirm Password")]

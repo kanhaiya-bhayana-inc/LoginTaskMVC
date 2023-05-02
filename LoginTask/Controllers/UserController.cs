@@ -10,11 +10,14 @@ namespace LoginTask.Controllers
 {
     public class UserController : Controller
     {
+        const string errorMessage = "";
         DbUserSignUpLoginEntities db = new DbUserSignUpLoginEntities();
         // GET: User
         public ActionResult Index()
         {
-            return View(db.TblUsers.ToList());
+            List<TblUser> obj = new List<TblUser> ();
+            obj = db.TblUsers.ToList();
+            return View(obj);
         }
 
         public ActionResult SignUp()
