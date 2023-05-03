@@ -11,13 +11,41 @@ namespace LoginTask.Controllers
     public class UserController : Controller
     {
         const string errorMessage = "";
-        DbUserSignUpLoginEntities db = new DbUserSignUpLoginEntities();
+        /*DbUserSignUpLoginEntities db = new DbUserSignUpLoginEntities();*/
+        DbUserSignUpLoginEntities1 db = new DbUserSignUpLoginEntities1();
         // GET: User
         public ActionResult Index()
         {
             List<TblUser> obj = new List<TblUser> ();
             obj = db.TblUsers.ToList();
             return View(obj);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string userName)
+        {
+
+            /*DbUserSignUpLoginEntities obj = new DbUserSignUpLoginEntities();
+            TblUser user = new TblUser();
+            user = obj.Database.SqlQuery("exec CallMade", userName).ToList();*/
+            /*var user = db.SearchUser(userName).ToList();
+            List<TblUser> dta = new List<TblUser> ();
+            dta = user;*/
+            List<TblUser> users = new List<TblUser>();
+            List<SearchUser_Result> data = new List<SearchUser_Result> ();
+            data = db.SearchUser(userName).ToList();
+            foreach(SearchUser_Result dt in data)
+            {
+                TblUser user = new TblUser();
+                user.UserName = dt.UserName;
+                user.UserPhone = dt.UserPhone;
+                user.UserEmail = dt.UserEmail;
+                user.UserAddress = dt.UserAddress;
+                users.Add(user);
+            }
+
+            /*IEnumerable<TblUser> userData = db.Database.SqlQuery<TblUser>("exec SearchUser", userName).ToList();*/
+            return View(users);
         }
 
         public ActionResult SignUp()

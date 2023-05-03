@@ -12,11 +12,13 @@ namespace LoginTask.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
-    public partial class DbUserSignUpLoginEntities : DbContext
+    public partial class DbUserSignUpLoginEntities1 : DbContext
     {
-        public DbUserSignUpLoginEntities()
-            : base("name=DbUserSignUpLoginEntities")
+        public DbUserSignUpLoginEntities1()
+            : base("name=DbUserSignUpLoginEntities1")
         {
         }
     
@@ -26,5 +28,14 @@ namespace LoginTask.Models
         }
     
         public virtual DbSet<TblUser> TblUsers { get; set; }
+    
+        public virtual ObjectResult<SearchUser_Result> SearchUser(string userName)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SearchUser_Result>("SearchUser", userNameParameter);
+        }
     }
 }

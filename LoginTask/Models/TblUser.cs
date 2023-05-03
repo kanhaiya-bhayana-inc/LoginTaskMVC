@@ -18,7 +18,7 @@ namespace LoginTask.Models
     {
         public int UserID { get; set; }
         [Required(ErrorMessage = "This field is required!")]
-        [RegularExpression(@"^[A-Z][a-z](\s[A-Z][a-z])+$", ErrorMessage = "Not a valid name!")]
+        [RegularExpression(@"^[A-Z][a-z]{3,}|(\s[A-Z][a-z]*)+$", ErrorMessage = "Not a valid name!")]
         [Display(Name = "Full Name")]
         public string UserName { get; set; }
         [Required(ErrorMessage = "This field is required!")]

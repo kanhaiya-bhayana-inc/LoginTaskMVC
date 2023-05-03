@@ -1,3 +1,5 @@
+C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\obj\Debug\LoginTask.csproj.AssemblyReference.cache
+C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\obj\Debug\LoginTask.csproj.CoreCompileInputs.cache
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\bin\LoginTask.dll.config
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\bin\LoginTask.dll
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\bin\LoginTask.pdb
@@ -76,8 +78,6 @@ C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\bin\System.Web.Web
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\bin\Newtonsoft.Json.xml
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\bin\Antlr3.Runtime.pdb
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\obj\Debug\LoginTask.csproj.AssemblyReference.cache
-C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\obj\Debug\LoginTask.csproj.CoreCompileInputs.cache
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\obj\Debug\LoginTask.csproj.CopyComplete
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\obj\Debug\LoginTask.dll
 C:\Users\kanhaiya.bhayana\source\repos\C#\LoginTask\LoginTask\obj\Debug\LoginTask.pdb

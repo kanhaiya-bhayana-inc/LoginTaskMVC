@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DbUserSignUpLoginModelStoreContainer" CdmEntityContainer="DbUserSignUpLoginEntities">
+  <EntityContainerMapping StorageEntityContainer="DbUserSignUpLoginModelStoreContainer" CdmEntityContainer="DbUserSignUpLoginEntities1">
     <EntitySetMapping Name="TblUsers">
       <EntityTypeMapping TypeName="DbUserSignUpLoginModel.TblUser">
         <MappingFragment StoreEntitySet="TblUser">
@@ -13,5 +13,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SearchUser" FunctionName="DbUserSignUpLoginModel.Store.SearchUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbUserSignUpLoginModel.SearchUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

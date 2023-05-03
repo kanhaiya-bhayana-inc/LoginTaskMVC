@@ -16,6 +16,9 @@
           <Property Name="UserAddress" Type="varchar" MaxLength="100" />
           <Property Name="UserPassword" Type="varchar" MaxLength="255" />
         </EntityType>
+        <Function Name="SearchUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="DbUserSignUpLoginModelStoreContainer">
           <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -35,15 +38,26 @@
           <Property Name="UserAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="UserPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="DbUserSignUpLoginEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DbUserSignUpLoginEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
+          <FunctionImport Name="SearchUser" ReturnType="Collection(DbUserSignUpLoginModel.SearchUser_Result)">
+            <Parameter Name="userName" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="SearchUser_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="UserEmail" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="UserPhone" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="UserAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="UserPassword" Nullable="true" MaxLength="255" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DbUserSignUpLoginModelStoreContainer" CdmEntityContainer="DbUserSignUpLoginEntities">
+        <EntityContainerMapping StorageEntityContainer="DbUserSignUpLoginModelStoreContainer" CdmEntityContainer="DbUserSignUpLoginEntities1">
           <EntitySetMapping Name="TblUsers">
             <EntityTypeMapping TypeName="DbUserSignUpLoginModel.TblUser">
               <MappingFragment StoreEntitySet="TblUser">
@@ -56,6 +70,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SearchUser" FunctionName="DbUserSignUpLoginModel.Store.SearchUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbUserSignUpLoginModel.SearchUser_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

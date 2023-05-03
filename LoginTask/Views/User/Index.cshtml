@@ -8,6 +8,12 @@
 
 <a href="@Url.Action("SignUp","User")" class="btn btn-primary mt-3">Add User</a>
 
+@using (Html.BeginForm("Index", "User", FormMethod.Post))
+{
+    <div>
+        <span>UserName:</span> @Html.TextBox("UserName")
+        <input type="submit" value="Search" />
+    </div>
 <table class="table">
     <tr>
         @*<th>
@@ -67,3 +73,4 @@
     }
 
 </table>
+}

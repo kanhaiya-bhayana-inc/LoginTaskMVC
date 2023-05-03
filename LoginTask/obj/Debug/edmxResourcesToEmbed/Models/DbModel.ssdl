@@ -11,6 +11,9 @@
     <Property Name="UserAddress" Type="varchar" MaxLength="100" />
     <Property Name="UserPassword" Type="varchar" MaxLength="255" />
   </EntityType>
+  <Function Name="SearchUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="DbUserSignUpLoginModelStoreContainer">
     <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
